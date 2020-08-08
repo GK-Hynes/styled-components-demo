@@ -6,8 +6,10 @@ const Heading = styled.h1`
   font-size: 2rem;
 `;
 
+const accentColor = `aqua`;
+
 const Button = styled.button`
-  color: #fff;
+  color: ${accentColor};
   font-size: 1.5rem;
   padding: 0.5rem 1rem;
   margin: 0.5rem;
@@ -16,15 +18,24 @@ const Button = styled.button`
   background: ${({ type }) => (type === `cancel` ? `red` : `blue`)};
 `;
 
+const AppWrapper = styled.div`
+  header {
+    background: teal;
+    &:hover {
+      background: aqua;
+    }
+  }
+`;
+
 function App() {
   return (
-    <div className="App">
+    <AppWrapper>
       <header className="App-header">
         <Heading>Woo, tagged template literals!</Heading>
         <Button>Save</Button>
         <Button type="cancel">Cancel</Button>
       </header>
-    </div>
+    </AppWrapper>
   );
 }
 
