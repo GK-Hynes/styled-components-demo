@@ -130,3 +130,17 @@ const fixedTop = css`
   left: 0;
 `;
 ```
+
+### Global styles
+
+Globally scoped styles, for CSS resets and base stylesheets, can be added using the `createGlobalStyle` helper function.
+
+```js
+const GlobalStyle = createGlobalStyle`
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+`;
+```

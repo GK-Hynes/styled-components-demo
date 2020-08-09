@@ -1,6 +1,6 @@
 import React from "react";
 import styled, { css } from "styled-components";
-import "./App.css";
+import GlobalStyle from "./Global";
 
 const sizes = {
   small: 640,
@@ -75,12 +75,14 @@ const StyledDemo = styled(DemoComponent)`
 function App() {
   return (
     <AppWrapper>
-      <header className="App-header">
-        <Heading>Woo, tagged template literals!</Heading>
-        <StyledDemo></StyledDemo>
-        <Button>Save</Button>
-        <CancelButton>Cancel</CancelButton>
-      </header>
+      <GlobalStyle>
+        <header className="App-header">
+          <Heading>Woo, tagged template literals!</Heading>
+          <StyledDemo></StyledDemo>
+          <Button>Save</Button>
+          <CancelButton>Cancel</CancelButton>
+        </header>
+      </GlobalStyle>
     </AppWrapper>
   );
 }
