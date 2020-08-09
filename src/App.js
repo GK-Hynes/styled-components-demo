@@ -1,9 +1,37 @@
 import React from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import "./App.css";
+
+const sizes = {
+  small: 640,
+  medium: 768,
+  large: 1024,
+  extraLarge: 1280
+};
+
+const above = Object.keys(sizes).reduce((acc, label) => {
+  acc[label] = (...args) => css`
+    @media (min-width: ${sizes[label]}px) {
+      ${css(...args)}
+    }
+  `;
+  return acc;
+}, {});
+
+const below = Object.keys(sizes).reduce((acc, label) => {
+  acc[label] = (...args) => css`
+    @media (max-width: ${sizes[label]}px) {
+      ${css(...args)}
+    }
+  `;
+  return acc;
+}, {});
 
 const Heading = styled.h1`
   font-size: 2rem;
+  ${above.medium`
+  color: blue;
+  `}
 `;
 
 const Button = styled.button`

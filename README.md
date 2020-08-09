@@ -77,3 +77,44 @@ const StyledDemo = styled(DemoComponent)`
   color: red;
 `;
 ```
+
+### Media queries
+
+With styled-components you can nest media queries inside your styled-component.
+
+```js
+const ColorChanger = styled.section`
+  background: papayawhip;
+
+  @media (min-width: 768px) {
+    background: mediumseagreen;
+  }
+`;
+```
+
+You can also create a breakpoints function which uses reduce to output a media query based off the properties of a breakpoints object. This requires styled-components' `css` method.
+
+```js
+const sizes = {
+  small: 640,
+  medium: 768,
+  large: 1024,
+  extraLarge: 1280
+};
+
+const above = Object.keys(sizes).reduce((acc, label) => {
+  acc[label] = (...args) => css`
+    @media (min-width: ${sizes[label]}px) {
+      ${css(...args)}
+    }
+  `;
+  return acc;
+}, {});
+
+const Heading = styled.h1`
+  font-size: 2rem;
+  ${above.medium`
+  font-size: 3rem;
+  `}
+`;
+```
