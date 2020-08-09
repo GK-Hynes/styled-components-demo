@@ -31,3 +31,49 @@ const AppWrapper = styled.div`
 `;
 ```
 
+### Extending styles
+
+styled components lets you extend the properties of one component into another.
+
+```js
+const Button = styled.button`
+  margin: 0.5rem;
+  padding: 0.5rem 1rem;
+  font-size: 1.5rem;
+  background: blue;
+  color: #fff;
+  border-radius: 0.25rem;
+  border: none;
+`;
+
+const CancelButton = styled(Button)`
+  background: red;
+`;
+```
+
+You can reference one styled-component inside another by referencing the variable name.
+
+```js
+const AppWrapper = styled.div`
+  header {
+    background: teal;
+    ${Button} {
+      margin-bottom: 2rem;
+    }
+  }
+`;
+```
+
+### Styling any component
+
+You can use the `styled` method on React components too, as long as you pass the `className` prop to the DOM element.
+
+```js
+const DemoComponent = ({ className }) => (
+  <h2 className={className}>I'm a demo component</h2>
+);
+
+const StyledDemo = styled(DemoComponent)`
+  color: red;
+`;
+```
