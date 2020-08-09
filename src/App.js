@@ -27,6 +27,12 @@ const below = Object.keys(sizes).reduce((acc, label) => {
   return acc;
 }, {});
 
+const fixedTop = css`
+  position: fixed;
+  top: ${({ top }) => top + "px"};
+  left: 0;
+`;
+
 const Heading = styled.h1`
   font-size: 2rem;
   ${above.medium`
@@ -46,6 +52,7 @@ const Button = styled.button`
 
 const CancelButton = styled(Button)`
   background: red;
+  ${fixedTop};
 `;
 
 const AppWrapper = styled.div`

@@ -118,3 +118,15 @@ const Heading = styled.h1`
   `}
 `;
 ```
+
+## The `css` function
+
+The `css` function generates CSS from a template literal. You'll use it if you want to create a mixin that leverages props or are interpolating a function.
+
+```js
+const fixedTop = css`
+  position: fixed;
+  top: ${({ top }) => top + "px"};
+  left: 0;
+`;
+```
