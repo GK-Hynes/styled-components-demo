@@ -66,15 +66,21 @@ const AppWrapper = styled.div`
 
 ### Styling any component
 
-You can use the `styled` method on React components too, as long as you pass the `className` prop to the DOM element.
+You can use the `styled` method on existing React components too, as long as you pass the `className` prop to the DOM element.
 
 ```js
-const DemoComponent = ({ className }) => (
-  <h2 className={className}>I'm a demo component</h2>
+const Header = ({ className }) => (
+  <header className={className}>
+    <img className="logo" src={logo} alt="React logo" />
+  </header>
 );
 
-const StyledDemo = styled(DemoComponent)`
-  color: red;
+const StyledHeader = styled(Header)`
+  background: #524763;
+  padding: 0.75rem;
+  .logo {
+    width: 40px;
+  }
 `;
 ```
 
