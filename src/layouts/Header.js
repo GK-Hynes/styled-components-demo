@@ -6,11 +6,11 @@ import { purple, elevation, fixed, serif } from "../utilities";
 const Header = ({ className }) => (
   <header className={className}>
     <img className="logo" src={logo} alt="React logo" />
-    <h1>Hello</h1>
   </header>
 );
 
 export default styled(Header)`
+  width: 100%;
   background: ${purple};
   padding: 0.75rem;
   color: #fff;
