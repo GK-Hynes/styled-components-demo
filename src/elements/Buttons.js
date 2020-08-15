@@ -1,6 +1,18 @@
 import styled from "styled-components";
 import { lighten, darken } from "polished";
+import { applyStyleModifiers } from "styled-components-modifiers";
 import { teal, elevation } from "../utilities";
+
+const BUTTON_MODIFIERS = {
+  small: () => `
+    font-size: 1rem;
+    padding: 3px 10px;
+  `,
+
+  cancel: () => `
+    background: red;
+  `
+};
 
 export const Button = styled.button`
   cursor: pointer;
@@ -11,30 +23,13 @@ export const Button = styled.button`
   border-radius: 0.25rem;
   border: none;
   background: ${teal};
-  transition: box-shadow background 0.3s ease;
+  transition: box-shadow 0.3s ease;
   ${elevation[1]};
   &:hover {
-    background: ${darken(0.2, teal)};
     ${elevation[2]};
   }
-  ${({ size }) => {
-    if (size === "small") {
-      return `
-      font-size: 1rem;
-      padding: 3px 10px;
-      `;
-    }
-  }}
-  ${({ type }) => {
-    if (type === "cancel") {
-      return `
-      background: red;
-      &:hover {
-        background: ${darken(0.2, "red")};
-      }
-      `;
-    }
-  }}
+
+  ${applyStyleModifiers(BUTTON_MODIFIERS)};
 `;
 
 export const CancelButton = styled(Button)`

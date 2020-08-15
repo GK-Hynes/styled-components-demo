@@ -9,9 +9,7 @@ function App() {
       <GlobalStyle />
       <Header />
       <Button>Login</Button>
-      <Button size="small" type="cancel">
-        Cancel
-      </Button>
+      <Button modifiers={["small", "cancel"]}>Cancel</Button>
     </div>
   );
 }
