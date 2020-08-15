@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { lighten, darken } from "polished";
 import { teal, elevation } from "../utilities";
 
 export const Button = styled.button`
@@ -10,9 +11,10 @@ export const Button = styled.button`
   border-radius: 0.25rem;
   border: none;
   background: ${teal};
-  transition: box-shadow 0.3s ease;
+  transition: box-shadow background 0.3s ease;
   ${elevation[1]};
   &:hover {
+    background: ${darken(0.2, teal)};
     ${elevation[2]};
   }
   ${({ size }) => {
@@ -27,6 +29,9 @@ export const Button = styled.button`
     if (type === "cancel") {
       return `
       background: red;
+      &:hover {
+        background: ${darken(0.2, "red")};
+      }
       `;
     }
   }}
