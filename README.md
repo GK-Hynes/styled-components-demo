@@ -182,3 +182,20 @@ const Button = styled.button`
   color: ${(props) => props.theme.colors.primary};
 `;
 ```
+
+### css prop
+
+The `css` prop lets you quickly prototype styles which you can then extract into their own styled-component.
+
+```js
+return (
+  <main
+    css={`
+      background: red;
+      h2 {
+        font-size: 2rem;
+      }
+    `}
+  >
+)
+```

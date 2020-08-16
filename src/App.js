@@ -1,5 +1,5 @@
 import React from "react";
-import { ThemeProvider } from "styled-components";
+import styled, { ThemeProvider } from "styled-components/macro";
 import GlobalStyle from "./Global";
 import Header from "./layouts/Header";
 import { Button, Card } from "./elements";
@@ -27,7 +27,11 @@ function App() {
       <div>
         <GlobalStyle />
         <Header />
-        <main>
+        <main
+          css={`
+            background: red;
+          `}
+        >
           <Button>Login</Button>
           <Button modifiers={["small", "cancel"]}>Cancel</Button>
           <ThemeProvider theme={themeTwo}>
