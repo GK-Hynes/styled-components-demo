@@ -9,8 +9,9 @@ const BUTTON_MODIFIERS = {
     padding: 3px 10px;
   `,
 
-  cancel: () => `
-    background: red;
+  cancel: ({ theme }) => `
+    font-size: ${theme.fontSizes.large};
+    background: ${theme.colors.secondary};
   `
 };
 
@@ -21,7 +22,7 @@ export const Button = styled.button`
   padding: 5px 20px;
   border-radius: 0.25rem;
   border: none;
-  background: ${teal};
+  background: ${(props) => props.theme.colors.primary};
   transition: box-shadow 0.3s ease;
   ${elevation[1]};
   &:hover {

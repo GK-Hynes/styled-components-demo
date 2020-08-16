@@ -125,7 +125,7 @@ const Heading = styled.h1`
 `;
 ```
 
-## The `css` function
+### The `css` function
 
 The `css` function generates CSS from a template literal. You'll use it if you want to create a mixin that leverages props or are interpolating a function.
 
@@ -148,5 +148,37 @@ body {
   padding: 0;
   box-sizing: border-box;
 }
+`;
+```
+
+### Theming
+
+styled-components lets you theme all or part of your app by wrapping it in a `ThemeProvider` wrapper. This component accepts a `theme` prop and all styled-components within the `ThemeProvider` have access to this.
+
+```js
+// Define what props.theme will look like
+const theme = {
+  colors: {
+    primary: "#026401"
+  },
+  fontSizes: {
+    large: "1.5rem"
+  }
+};
+
+// wrap components in a ThemeProvider
+render(
+  <div>
+    <Button>Normal</Button>
+    <ThemeProvider theme={theme}>
+      <Button>Themed</Button>
+    </ThemeProvider>
+  </div>
+);
+
+//  Define styles using props.theme
+const Button = styled.button`
+  font-size: ${(props) => props.theme.fontSizes.large};
+  color: ${(props) => props.theme.colors.primary};
 `;
 ```
